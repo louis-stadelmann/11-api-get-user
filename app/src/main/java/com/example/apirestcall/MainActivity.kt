@@ -14,11 +14,15 @@ class MainActivity : AppCompatActivity() {
         val usersApi = RetrofitHelper.getInstance().create(UserApi::class.java)
 
         GlobalScope.launch {
-            val result = usersApi.getUser()
-            if (result != null)
+            //val result = usersApi.getUsers()
+            //if (result != null)
             // Checking the results
-                Log.d("TEST: ", result.body().toString())
-        }
+                //Log.d("TEST: ", result.body().toString())
 
+            val result = usersApi.getUser("4")
+            if (result != null) {
+                Log.d("TEST: ", result.body().toString())
+            }
+        }
     }
 }
